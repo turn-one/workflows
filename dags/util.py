@@ -1,0 +1,1 @@
+WORKFLOWS_SPARK_APPS = {""}

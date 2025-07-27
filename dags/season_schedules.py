@@ -17,7 +17,7 @@ def seasons_schedule():
     def pyspark_task(spark: SparkSession):
         print(spark.sparkContext.getConf().getAll())
 
-    print_season_schedule()
+    print_season_schedule() >> pyspark_task()
 
 
 seasons_schedule()

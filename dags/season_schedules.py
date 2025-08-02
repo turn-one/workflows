@@ -37,12 +37,12 @@ def seasons_schedule():
     @task.pyspark(
         conn_id="spark-kubernetes",
     )
-    def load_into_bronze_catalog(spark: SparkSession, schedule: str):
-        print(schedule)
+    def load_into_bronze_catalog(
+        spark: SparkSession,
+    ):
         spark.sql("SHOW CATALOGS").show()
 
-    schedule = get_season_schedule(season)
-    load_into_bronze_catalog(schedule)
+    schedule = get_season_schedule(season) >> load_into_bronze_catalog()
 
 
 seasons_schedule()
